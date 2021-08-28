@@ -17,11 +17,19 @@ const sendTask = (event) => {
 }
 
 const removeTask = (event) => {
+	const trashBin = document.querySelectorAll('.delete')
 	const clickedElement = event.target
 
-	if (Array.from(clickedElement.classList).includes('delete')) {
-		clickedElement.parentElement.remove()
-	}
+	trashBin.forEach((task) => {
+		if (task == clickedElement) {
+			task.parentElement.remove()
+		}
+	})
+	// const clickedElement = event.target
+
+	// if (Array.from(clickedElement.classList).includes('delete')) {
+	// 	clickedElement.parentElement.remove()
+	// }
 }
 
 todoForm.addEventListener('submit', sendTask)
