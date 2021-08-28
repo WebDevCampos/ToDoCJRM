@@ -42,14 +42,12 @@ searchTaskForm.addEventListener('input', (event) => {
 	event.preventDefault()
 
 	Array.from(taskContainer.children).forEach((item) => {
-		if (!item.textContent.includes(event.target.value)) {
+		if (!item.textContent.includes(event.target.value.trim())) {
 			item.classList.remove('d-flex')
 			item.classList.add('d-none')
-			console.log(item)
 		} else if (!event.target.length) {
 			item.classList.remove('d-none')
 			item.classList.add('d-flex')
-			console.log(item)
 		}
 	})
 })
