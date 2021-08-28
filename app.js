@@ -34,11 +34,7 @@ const removeTask = (event) => {
 	// }
 }
 
-todoForm.addEventListener('submit', sendTask)
-
-taskContainer.addEventListener('click', removeTask)
-
-searchTaskForm.addEventListener('input', (event) => {
+const searchTask = (event) => {
 	event.preventDefault()
 
 	Array.from(taskContainer.children).forEach((item) => {
@@ -50,4 +46,10 @@ searchTaskForm.addEventListener('input', (event) => {
 			item.classList.add('d-flex')
 		}
 	})
-})
+}
+
+todoForm.addEventListener('submit', sendTask)
+
+taskContainer.addEventListener('click', removeTask)
+
+searchTaskForm.addEventListener('input', searchTask)
