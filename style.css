@@ -9,6 +9,7 @@ input[type='text']::placeholder {
 
 	border-radius: 10px;
 }
+
 header,
 h1 {
 	border-radius: 10px;
@@ -42,6 +43,7 @@ input[type='text']:focus {
 	border-radius: 3px;
 	transition: 0.4s;
 }
+
 .delete:hover {
 	transform: scale(120%);
 }
