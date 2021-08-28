@@ -2,6 +2,8 @@ const todoForm = document.querySelector('.form-add-todo')
 
 const taskContainer = document.querySelector('.todos-container')
 
+const searchTaskForm = document.querySelector('.form-search')
+
 const sendTask = (event) => {
 	event.preventDefault()
 	const inputTask = event.target.add.value.trim()
@@ -35,3 +37,19 @@ const removeTask = (event) => {
 todoForm.addEventListener('submit', sendTask)
 
 taskContainer.addEventListener('click', removeTask)
+
+searchTaskForm.addEventListener('input', (event) => {
+	event.preventDefault()
+
+	Array.from(taskContainer.children).forEach((item) => {
+		if (!item.textContent.includes(event.target.value)) {
+			item.classList.remove('d-flex')
+			item.classList.add('d-none')
+			console.log(item)
+		} else if (!event.target.length) {
+			item.classList.remove('d-none')
+			item.classList.add('d-flex')
+			console.log(item)
+		}
+	})
+})
