@@ -1,7 +1,5 @@
 const todoForm = document.querySelector('.form-add-todo')
-
 const taskContainer = document.querySelector('.todos-container')
-
 const searchTaskForm = document.querySelector('.form-search')
 
 const sendTask = (event) => {
@@ -17,7 +15,6 @@ const sendTask = (event) => {
 	}
 	todoForm.reset()
 }
-
 const removeTask = (event) => {
 	const trashBin = document.querySelectorAll('.delete')
 	const clickedElement = event.target
@@ -28,7 +25,6 @@ const removeTask = (event) => {
 		}
 	})
 }
-
 const searchTask = (event) => {
 	event.preventDefault()
 
@@ -44,7 +40,5 @@ const searchTask = (event) => {
 }
 
 todoForm.addEventListener('submit', sendTask)
-
 taskContainer.addEventListener('click', removeTask)
-
 searchTaskForm.addEventListener('input', searchTask)
