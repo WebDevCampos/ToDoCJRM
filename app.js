@@ -27,11 +27,6 @@ const removeTask = (event) => {
 			task.parentElement.remove()
 		}
 	})
-	// const clickedElement = event.target
-
-	// if (Array.from(clickedElement.classList).includes('delete')) {
-	// 	clickedElement.parentElement.remove()
-	// }
 }
 
 const searchTask = (event) => {
