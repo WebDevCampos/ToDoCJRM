@@ -5,8 +5,9 @@ const searchTaskForm = document.querySelector('.form-search')
 const sendTask = (event) => {
 	event.preventDefault()
 	const inputTask = event.target.add.value.trim()
+	const thereIsATask = inputTask.length
 
-	if (inputTask.length) {
+	if (thereIsATask) {
 		taskContainer.innerHTML += ` 
 		<li class="list-group-item d-flex justify-content-between align-items-center">
 			<span>${inputTask}</span>
@@ -20,19 +21,21 @@ const removeTask = (event) => {
 	const clickedElement = event.target
 
 	trashBin.forEach((task) => {
-		if (task == clickedElement) {
+		const trashBinIsClicked = task == clickedElement
+		if (trashBinIsClicked) {
 			task.parentElement.remove()
 		}
 	})
 }
 const searchTask = (event) => {
-	event.preventDefault()
-
 	Array.from(taskContainer.children).forEach((item) => {
-		if (!item.textContent.includes(event.target.value.trim())) {
+		const thereIsAMatch = !item.textContent.includes(event.target.value.trim())
+		const thereIsNotAValue = !event.target.length
+
+		if (thereIsAMatch) {
 			item.classList.remove('d-flex')
 			item.classList.add('d-none')
-		} else if (!event.target.length) {
+		} else if (thereIsNotAValue) {
 			item.classList.remove('d-none')
 			item.classList.add('d-flex')
 		}

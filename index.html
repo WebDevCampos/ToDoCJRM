@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="./style.css" />
 		<title>Lista de tarefas - To-do list | CJRM</title>
 	</head>
+
 	<body>
 		<div class="card container p-3 mt-2">
 			<header class="card-header text-center my-4 rounded-lg">
@@ -31,9 +32,12 @@
 						name="search"
 						placeholder="Buscar tarefa (Search to-do)"
 						autofocus
+						autocomplete="off"
 					/>
 				</form>
+				<!--Search Form-->
 			</header>
+
 			<div class="card-body">
 				<ul class="todos-container list-group text-dark">
 					<li
@@ -87,6 +91,7 @@
 						rounded-lg
 						p-3
 					"
+					autocomplete="off"
 				>
 					<label class="lead">Adicionar tarefa (Add to-do)</label>
 					<input class="form-control m-auto" type="text" name="add" />
