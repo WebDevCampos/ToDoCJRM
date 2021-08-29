@@ -29,7 +29,7 @@ const searchTask = (event) => {
 	event.preventDefault()
 
 	Array.from(taskContainer.children).forEach((item) => {
-		if (!item.textContent.includes(event.target.value.trim())) {
+		if (!item.textContent.includes(event.target.value.trim().toLowerCase())) {
 			item.classList.remove('d-flex')
 			item.classList.add('d-none')
 		} else if (!event.target.length) {
