@@ -29,7 +29,10 @@ const removeTask = (event) => {
 }
 const searchTask = (event) => {
 	Array.from(taskContainer.children).forEach((item) => {
-		const thereIsAMatch = !item.textContent.includes(event.target.value.trim())
+		const thereIsAMatch = !item.textContent
+			.toLowerCase()
+			.includes(event.target.value.trim().toLowerCase())
+
 		const thereIsNotAValue = !event.target.length
 
 		if (thereIsAMatch) {
