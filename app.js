@@ -22,8 +22,10 @@ const removeTask = (event) => {
 
 	trashBin.forEach((task) => {
 		const trashBinIsClicked = task == clickedElement
+		const taskRemove = task.parentElement
+
 		if (trashBinIsClicked) {
-			task.parentElement.remove()
+			taskRemove.remove()
 		}
 	})
 }
@@ -34,13 +36,14 @@ const searchTask = (event) => {
 			.includes(event.target.value.trim().toLowerCase())
 
 		const thereIsNotAValue = !event.target.length
+		const classList = item.classList
 
 		if (thereIsAMatch) {
-			item.classList.remove('d-flex')
-			item.classList.add('d-none')
+			classList.remove('d-flex')
+			classList.add('d-none')
 		} else if (thereIsNotAValue) {
-			item.classList.remove('d-none')
-			item.classList.add('d-flex')
+			classList.remove('d-none')
+			classList.add('d-flex')
 		}
 	})
 }
