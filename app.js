@@ -70,3 +70,5 @@ const searchTask = (event) => {
 todoForm.addEventListener('submit', sendTask)
 taskContainer.addEventListener('click', removeTask)
 searchTaskForm.addEventListener('input', searchTask)
+
+console.log('oi')
