@@ -2,47 +2,69 @@ const todoForm = document.querySelector('.form-add-todo')
 const taskContainer = document.querySelector('.todos-container')
 const searchTaskForm = document.querySelector('.form-search')
 
-const sendTask = (event) => {
-	event.preventDefault()
-	const inputTask = event.target.add.value.trim()
-	const thereIsATask = inputTask.length
+const searchTask = (event) => {
 
-	if (thereIsATask) {
-		taskContainer.innerHTML += ` 
-		<li class="list-group-item d-flex justify-content-between align-items-center">
-			<span>${inputTask}</span>
-			<i class="far fa-trash-alt delete"></i>
-		</li>`
-	}
-	todoForm.reset()
+  Array.from(taskContainer.children).forEach((item) => {
+
+    const thereIsAMatch = item.textContent
+
+    .toLowerCase()
+
+    .includes(event.target.value.trim().toLowerCase())
+
+
+
+    const classList = item.classList
+
+
+
+    if (thereIsAMatch) {
+
+      classList.remove('d-none')
+
+      classList.add('d-flex')
+
+      return
+
+    }
+
+
+
+    classList.remove('d-flex')
+
+    classList.add('d-none')
+
+  })
+
 }
-const removeTask = (event) => {
-	const trashBin = document.querySelectorAll('.delete')
-	const clickedElement = event.target
 
-	trashBin.forEach((task) => {
-		const trashBinIsClicked = task == clickedElement
-		if (trashBinIsClicked) {
-			task.parentElement.remove()
-		}
-	})
+const removeTask = (event) => {
+  const trashBin = document.querySelectorAll('.delete')
+  const clickedElement = event.target
+
+  trashBin.forEach((task) => {
+    const trashBinIsClicked = task == clickedElement
+    if (trashBinIsClicked) {
+      task.parentElement.remove()
+    }
+  })
 }
 const searchTask = (event) => {
-	Array.from(taskContainer.children).forEach((item) => {
-		const thereIsAMatch = !item.textContent
-			.toLowerCase()
-			.includes(event.target.value.trim().toLowerCase())
+  Array.from(taskContainer.children).forEach((item) => {
+    const thereIsAMatch = !item.textContent
+    .toLowerCase()
+    .includes(event.target.value.trim().toLowerCase())
 
-		const thereIsNotAValue = !event.target.length
+    const thereIsNotAValue = !event.target.length
 
-		if (thereIsAMatch) {
-			item.classList.remove('d-flex')
-			item.classList.add('d-none')
-		} else if (thereIsNotAValue) {
-			item.classList.remove('d-none')
-			item.classList.add('d-flex')
-		}
-	})
+    if (thereIsAMatch) {
+      item.classList.remove('d-flex')
+      item.classList.add('d-none')
+    } else if (thereIsNotAValue) {
+      item.classList.remove('d-none')
+      item.classList.add('d-flex')
+    }
+  })
 }
 
 todoForm.addEventListener('submit', sendTask)
